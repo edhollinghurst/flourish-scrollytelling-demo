@@ -43,7 +43,7 @@ const initScroller = () => {
     // figure.select('p').text(response.index + 1);
 
     // Update story based on step
-    createFlourishStory(`story/${STORY_ID}`, response.index + 1);
+    createFlourishStory(`story/${STORY_ID}`, response.index);
   }
 
   function setupStickyfill() {
@@ -64,8 +64,8 @@ const initScroller = () => {
     scroller
       .setup({
         step: '#scrolly article .step',
-        offset: 0.33,
-        // debug: true,
+        offset: 1,
+        debug: true,
       })
       .onStepEnter(handleStepEnter);
 

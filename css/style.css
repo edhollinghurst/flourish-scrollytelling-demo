@@ -42,20 +42,21 @@ figure p {
 .step {
   margin: 0 auto 2rem auto;
   color: #111111;
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  z-index: -1;
 }
 
 .step:last-child {
   margin-bottom: 0;
 }
 
-.step.is-active p {
+/* .step.is-active p {
   background-color: #3b3b3b;
   color: #f9f9f9;
-}
+} */
 
 .step p {
-  background-color: #d8dadb;
+  background-color: #f9f9f9;
   font-size: 1.5rem;
   padding: 1rem;
   text-align: center;
