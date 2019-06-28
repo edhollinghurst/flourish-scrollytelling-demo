@@ -13,7 +13,7 @@ function isSafari() {
 }
 
 const createFlourishStory = (storyId, slide = null) => {
-  const flourishEmbed = document.querySelector(`[data-src="${storyId}"]`);
+  const flourishEmbed = document.querySelector('.flourish-embed');
 
   const existingIframe = document.querySelector('iframe');
   if (existingIframe && existingIframe.src.includes(storyId)) {

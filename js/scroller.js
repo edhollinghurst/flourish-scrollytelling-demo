@@ -1,4 +1,5 @@
 import { createFlourishStory } from './flourish-embed';
+import { STORY_ID } from './script';
 
 const initScroller = () => {
   // using d3 for convenience
@@ -42,7 +43,7 @@ const initScroller = () => {
     // figure.select('p').text(response.index + 1);
 
     // Update story based on step
-    createFlourishStory('story/52937', response.index + 1);
+    createFlourishStory(`story/${STORY_ID}`, response.index + 1);
   }
 
   function setupStickyfill() {
