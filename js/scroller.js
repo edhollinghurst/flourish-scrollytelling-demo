@@ -1,9 +1,12 @@
+import * as d3 from 'd3';
+import scrollama from 'scrollama';
+import Stickyfill from 'stickyfilljs';
 import { createFlourishStory } from './flourish-embed';
 import { STORY_ID } from './script';
 
 const initScroller = () => {
   // using d3 for convenience
-  var main = d3.select('main');
+  var main = d3.select('.scrolly-tell-container');
   var scrolly = main.select('#scrolly');
   var figure = scrolly.select('figure');
   var article = scrolly.select('article');
