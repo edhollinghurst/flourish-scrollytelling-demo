@@ -15,7 +15,8 @@ function isSafari() {
 const createFlourishStory = (storyId, slide = null) => {
   const flourishEmbed = document.querySelector('.flourish-embed');
 
-  const existingIframe = document.querySelector('iframe');
+  const existingIframe = flourishEmbed.querySelector('iframe');
+  console.log('existingIframe', existingIframe);
   if (existingIframe && existingIframe.src.includes(storyId)) {
     const embedUrl = `${BASE_URL}${storyId}/embed${
       slide ? `#slide-${slide}` : ''
