@@ -6,18 +6,19 @@ body {
   font-family: 'SkyText';
   margin: 0;
 }
-#scrolly {
+
+.scrolly-tell-container #scrolly {
   position: relative;
 }
 
-article {
+.scrolly-tell-container article {
   position: relative;
   padding: 0;
   max-width: 20rem;
   margin: 0 auto;
 }
 
-figure {
+.scrolly-tell-container figure {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
@@ -27,7 +28,7 @@ figure {
   background-color: #8a8a8a;
 }
 
-figure p {
+.scrolly-tell-container figure p {
   text-align: center;
   padding: 1rem;
   position: absolute;
@@ -39,14 +40,14 @@ figure p {
   color: #fff;
 }
 
-.step {
+.scrolly-tell-container .step {
   margin: 0 auto 2rem auto;
   color: #111111;
   /* background-color: rgba(0, 0, 0, 0.1); */
   z-index: -1;
 }
 
-.step:last-child {
+.scrolly-tell-container .step:last-child {
   margin-bottom: 0;
 }
 
@@ -55,7 +56,7 @@ figure p {
   color: #f9f9f9;
 } */
 
-.step p {
+.scrolly-tell-container .step p {
   background-color: #f9f9f9;
   font-size: 1.5rem;
   padding: 1rem;

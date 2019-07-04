@@ -2,9 +2,52 @@ import 'intersection-observer';
 import { initScroller } from './scroller';
 export const STORY_ID = '53209';
 
-import '../css/style.css';
-
 const html = `<div class="scrolly-tell-container">
+<style>
+  .scrolly-tell-container #scrolly {
+    position: relative;
+  }
+  .scrolly-tell-container article {
+    position: relative;
+    padding: 0;
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+  .scrolly-tell-container figure {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    transform: translate3d(0, 0, 0);
+    background-color: #8a8a8a;
+  }
+  .scrolly-tell-container figure p {
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  .scrolly-tell-container .step {
+    margin: 0 auto 2rem auto;
+    color: #111111;
+    z-index: -1;
+  }
+  .scrolly-tell-container .step:last-child {
+    margin-bottom: 0;
+  }
+  .scrolly-tell-container .step p {
+    background-color: #f9f9f9;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+</style>
 <section id="scrolly">
   <figure>
     <div class="flourish-embed" />
