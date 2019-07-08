@@ -16,7 +16,6 @@ function isSafari() {
 }
 
 const createFlourishStory = (slide = null) => {
-  console.log('createFlourishStory', storyId);
   const flourishEmbed = document.querySelector('.flourish-embed');
 
   const existingIframe = flourishEmbed.querySelector('iframe');
