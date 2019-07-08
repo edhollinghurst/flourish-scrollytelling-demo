@@ -2,7 +2,8 @@ import * as d3 from 'd3';
 import scrollama from 'scrollama';
 import Stickyfill from 'stickyfilljs';
 import { createFlourishStory } from './flourish-embed';
-import { STORY_ID } from './script';
+
+let CURRENT_STEP = 0;
 
 const initScroller = () => {
   // using d3 for convenience
@@ -21,7 +22,7 @@ const initScroller = () => {
     var stepH = Math.floor(window.innerHeight * 0.75);
     step.style('height', stepH + 'px');
 
-    var figureHeight = window.innerHeight - 35;
+    var figureHeight = window.innerHeight;
     // var figureMarginTop = (window.innerHeight - figureHeight) / 2;
     var figureMarginTop = 0;
 
@@ -45,8 +46,12 @@ const initScroller = () => {
     // update graphic based on step
     // figure.select('p').text(response.index + 1);
 
+    // console.log('response.index', response.index);
     // Update story based on step
-    createFlourishStory(`story/${STORY_ID}`, response.index);
+    if (response.index !== CURRENT_STEP) {
+      createFlourishStory(response.index);
+      CURRENT_STEP = response.index;
+    }
   }
 
   function setupStickyfill() {
@@ -71,6 +76,8 @@ const initScroller = () => {
         debug: true,
       })
       .onStepEnter(handleStepEnter);
+
+    createFlourishStory(0);
 
     // setup resize event
     window.addEventListener('resize', handleResize);

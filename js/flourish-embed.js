@@ -1,5 +1,8 @@
 const BASE_URL = 'https://public.flourish.studio/';
 
+const scrollyTellingScript = document.querySelector('#scrollytelling-script');
+const storyId = `story/${scrollyTellingScript.getAttribute('data-story-id')}`;
+
 function getWindowHeight() {
   return window.innerHeight;
 }
@@ -12,7 +15,8 @@ function isSafari() {
   );
 }
 
-const createFlourishStory = (storyId, slide = null) => {
+const createFlourishStory = (slide = null) => {
+  console.log('createFlourishStory', storyId);
   const flourishEmbed = document.querySelector('.flourish-embed');
 
   const existingIframe = flourishEmbed.querySelector('iframe');
