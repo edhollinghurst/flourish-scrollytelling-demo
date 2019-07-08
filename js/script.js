@@ -23,18 +23,6 @@ const html = `<div class="scrolly-tell-container">
     width: 100%;
     margin: 0;
     transform: translate3d(0, 0, 0);
-    background-color: #8a8a8a;
-  }
-  .scrolly-tell-container figure p {
-    text-align: center;
-    padding: 1rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 8rem;
-    font-weight: 900;
-    color: #fff;
   }
   .scrolly-tell-container .step {
     margin: 0 auto 2rem auto;
@@ -46,9 +34,15 @@ const html = `<div class="scrolly-tell-container">
   }
   .scrolly-tell-container .step p {
     background-color: #f9f9f9;
-    font-size: 1.5rem;
-    padding: 1rem;
+    font-size: 1rem;
+    padding: 0.75rem;
     text-align: center;
+  }
+  @media only screen and (min-width: 601px) {
+    .scrolly-tell-container .step p {
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
   }
 </style>
 <section id="scrolly">
