@@ -21,7 +21,7 @@ const initScroller = () => {
     var stepH = Math.floor(window.innerHeight * 0.75);
     step.style('height', stepH + 'px');
 
-    var figureHeight = window.innerHeight;
+    var figureHeight = window.innerHeight - 35;
     // var figureMarginTop = (window.innerHeight - figureHeight) / 2;
     var figureMarginTop = 0;
 

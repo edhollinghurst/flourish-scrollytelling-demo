@@ -4,6 +4,9 @@ export const STORY_ID = '53209';
 
 const html = `<div class="scrolly-tell-container">
 <style>
+  .scrolly-tell-container {
+    margin-bottom: 60px;
+  }
   .scrolly-tell-container #scrolly {
     position: relative;
   }
@@ -12,6 +15,7 @@ const html = `<div class="scrolly-tell-container">
     padding: 0;
     max-width: 20rem;
     margin: 0 auto;
+    pointer-events: none;
   }
   .scrolly-tell-container figure {
     position: -webkit-sticky;
