@@ -3,9 +3,14 @@ import { initScroller } from './scroller';
 
 const scrollyTellingScript = document.querySelector('#scrollytelling-script');
 const steps = JSON.parse(scrollyTellingScript.dataset.steps.replace(/'/g, '"'));
+const scrollytellEl = document.querySelector('#scrollytell');
+const storyId = scrollytellEl.getAttribute('data-story-id');
 
 const html = `<div class="scrolly-tell-container">
 <style>
+  #scrollytell {
+    margin-bottom: 1.5rem;
+  }
   .scrolly-tell-container #scrolly {
     position: relative;
   }
@@ -61,7 +66,6 @@ const html = `<div class="scrolly-tell-container">
 </section>
 </div>`;
 
-const sdcArticleBody = document.querySelector('.sdc-article-body');
-sdcArticleBody.innerHTML = html;
+scrollytellEl.innerHTML = html;
 
-initScroller();
+initScroller(storyId);

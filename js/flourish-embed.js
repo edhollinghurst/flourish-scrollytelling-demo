@@ -1,8 +1,5 @@
 const BASE_URL = 'https://public.flourish.studio/';
 
-const scrollyTellingScript = document.querySelector('#scrollytelling-script');
-const storyId = `story/${scrollyTellingScript.getAttribute('data-story-id')}`;
-
 function getWindowHeight() {
   return window.innerHeight;
 }
@@ -15,19 +12,19 @@ function isSafari() {
   );
 }
 
-const createFlourishStory = (slide = null) => {
+const createFlourishStory = (storyId, slide = null) => {
   const flourishEmbed = document.querySelector('.flourish-embed');
 
   const existingIframe = flourishEmbed.querySelector('iframe');
-  if (existingIframe && existingIframe.src.includes(storyId)) {
-    const embedUrl = `${BASE_URL}${storyId}/embed${
+  if (existingIframe && existingIframe.src.includes(`story/${storyId}`)) {
+    const embedUrl = `${BASE_URL}story/${storyId}/embed${
       slide ? `#slide-${slide}` : ''
     }`;
     existingIframe.src = embedUrl;
     return;
   }
 
-  const embedUrl = `${BASE_URL}${storyId}/embed${
+  const embedUrl = `${BASE_URL}story/${storyId}/embed${
     slide ? `#slide-${slide}` : ''
   }`;
 

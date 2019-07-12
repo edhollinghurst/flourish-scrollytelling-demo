@@ -5,7 +5,7 @@ import { createFlourishStory } from './flourish-embed';
 
 let CURRENT_STEP = 0;
 
-const initScroller = () => {
+const initScroller = (storyId) => {
   // using d3 for convenience
   var main = d3.select('.scrolly-tell-container');
   var scrolly = main.select('#scrolly');
@@ -49,7 +49,7 @@ const initScroller = () => {
     // console.log('response.index', response.index);
     // Update story based on step
     if (response.index !== CURRENT_STEP) {
-      createFlourishStory(response.index);
+      createFlourishStory(storyId, response.index);
       CURRENT_STEP = response.index;
     }
   }
@@ -77,7 +77,7 @@ const initScroller = () => {
       })
       .onStepEnter(handleStepEnter);
 
-    createFlourishStory(0);
+    createFlourishStory(storyId, 0);
 
     // setup resize event
     window.addEventListener('resize', handleResize);
