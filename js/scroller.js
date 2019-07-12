@@ -30,10 +30,6 @@ const initScroller = (storyId) => {
       .style('height', figureHeight + 'px')
       .style('top', figureMarginTop + 'px');
 
-    article
-      .style('top', `-${figureHeight}px`)
-      .style('padding-top', `${figureHeight}px`);
-
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
   }

@@ -15,22 +15,23 @@ const html = `<div class="scrolly-tell-container">
     position: relative;
   }
   .scrolly-tell-container article {
-    position: relative;
-    padding: 0;
-    max-width: 20rem;
     margin: 0 auto;
+    max-width: 20rem;
+    padding: 0;
     pointer-events: none;
+    position: relative;
   }
   .scrolly-tell-container figure {
-    position: sticky;
     left: 0;
-    width: 100%;
     margin: 0;
+    position: sticky;
     transform: translate3d(0, 0, 0);
+    width: 100%;
+    z-index: -1;
   }
   .scrolly-tell-container .step {
-    margin: 0 auto 2rem auto;
     color: #111111;
+    margin: 0 auto 2rem auto;
   }
   .scrolly-tell-container .step:last-child {
     margin-bottom: 0;
@@ -45,11 +46,6 @@ const html = `<div class="scrolly-tell-container">
     .scrolly-tell-container .step p {
       font-size: 1.5rem;
       padding: 1rem;
-    }
-  }
-  @media (hover: none) {
-    .scrolly-tell-container article {
-      pointer-events: auto;
     }
   }
 </style>
