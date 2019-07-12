@@ -49,6 +49,11 @@ const html = `<div class="scrolly-tell-container">
       padding: 1rem;
     }
   }
+  @media (hover: none) {
+    .scrolly-tell-container article {
+      pointer-events: auto;
+    }
+  }
 </style>
 <section id="scrolly">
   <figure>
