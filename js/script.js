@@ -27,7 +27,6 @@ const html = `<div class="scrolly-tell-container">
     position: sticky;
     transform: translate3d(0, 0, 0);
     width: 100%;
-    z-index: -1;
   }
   .scrolly-tell-container .step {
     color: #111111;
@@ -46,6 +45,11 @@ const html = `<div class="scrolly-tell-container">
     .scrolly-tell-container .step p {
       font-size: 1.5rem;
       padding: 1rem;
+    }
+  }
+  @media (hover: none) {
+    .scrolly-tell-container figure {
+      pointer-events: none;
     }
   }
 </style>
