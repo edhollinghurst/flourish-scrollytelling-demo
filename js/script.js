@@ -22,7 +22,6 @@ const html = `<div class="scrolly-tell-container">
     pointer-events: none;
   }
   .scrolly-tell-container figure {
-    position: -webkit-sticky;
     position: sticky;
     left: 0;
     width: 100%;
@@ -32,7 +31,6 @@ const html = `<div class="scrolly-tell-container">
   .scrolly-tell-container .step {
     margin: 0 auto 2rem auto;
     color: #111111;
-    z-index: -1;
   }
   .scrolly-tell-container .step:last-child {
     margin-bottom: 0;
