@@ -5,6 +5,8 @@ const scrollytellEl = document.querySelector('#scrollytell');
 const steps = scrollytellEl.querySelectorAll('span');
 const stepsArr = Array.from(steps);
 
+console.log({ scrollytellEl, steps, stepsArr });
+
 const storyId = scrollytellEl.getAttribute('data-story-id');
 
 const html = `<div class="scrolly-tell-container">
