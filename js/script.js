@@ -1,9 +1,10 @@
 import 'intersection-observer';
 import { initScroller } from './scroller';
 
-const scrollyTellingScript = document.querySelector('#scrollytelling-script');
-const steps = JSON.parse(scrollyTellingScript.dataset.steps.replace(/'/g, '"'));
 const scrollytellEl = document.querySelector('#scrollytell');
+const steps = scrollytellEl.querySelectorAll('span');
+const stepsArr = Array.from(steps);
+
 const storyId = scrollytellEl.getAttribute('data-story-id');
 
 const html = `<div class="scrolly-tell-container">
@@ -57,12 +58,8 @@ const html = `<div class="scrolly-tell-container">
     <div class="flourish-embed" />
   </figure>
   <article>
-    ${steps
-      .map((step, index) =>
-        step
-          ? `<div class="step" data-step=${index + 1}><p>${step}</p></div>`
-          : `<div class="step" data-step=${index + 1}></div>`
-      )
+    ${stepsArr
+      .map((step) => `<div class="step"><p>${step.innerHTML}</p></div>`)
       .join('')}
   </article>
 </section>
