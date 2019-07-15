@@ -48,6 +48,9 @@ const html = `<div class="scrolly-tell-container">
   .touch-device article {
     pointer-events: auto;
   }
+  .touch-device .flourish-embed iframe {
+    pointer-events: none;
+  }
 </style>
 <section id="scrolly">
   <figure>
