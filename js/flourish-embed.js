@@ -18,14 +18,15 @@ const createFlourishStory = (storyId, slide = null) => {
   const existingIframe = flourishEmbed.querySelector('iframe');
   if (existingIframe && existingIframe.src.includes(`story/${storyId}`)) {
     const embedUrl = `${BASE_URL}story/${storyId}/embed${
-      slide ? `#slide-${slide}` : ''
+      slide ? `#slide-${slide}` : '#slide-0'
     }`;
+
     existingIframe.src = embedUrl;
     return;
   }
 
   const embedUrl = `${BASE_URL}story/${storyId}/embed${
-    slide ? `#slide-${slide}` : ''
+    slide ? `#slide-${slide}` : '#slide-0'
   }`;
 
   let chartWidth = flourishEmbed.getAttribute('data-width');
