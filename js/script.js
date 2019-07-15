@@ -8,29 +8,28 @@ const storyId = scrollytellEl.getAttribute('data-story-id');
 
 const html = `<div class="scrolly-tell-container">
 <style>
-  #scrollytell {
-    margin-bottom: 1.5rem;
-  }
   .scrolly-tell-container #scrolly {
     position: relative;
   }
   .scrolly-tell-container article {
-    margin: 0 auto;
-    max-width: 20rem;
-    padding: 0;
-    pointer-events: none;
     position: relative;
+    padding: 0;
+    max-width: 20rem;
+    margin: 0 auto;
+    pointer-events: none;
   }
   .scrolly-tell-container figure {
-    left: 0;
-    margin: 0;
+    position: -webkit-sticky;
     position: sticky;
-    transform: translate3d(0, 0, 0);
+    left: 0;
     width: 100%;
+    margin: 0;
+    transform: translate3d(0, 0, 0);
   }
   .scrolly-tell-container .step {
-    color: #111111;
     margin: 0 auto 2rem auto;
+    color: #111111;
+    z-index: -1;
   }
   .scrolly-tell-container .step:last-child {
     margin-bottom: 0;
@@ -45,11 +44,6 @@ const html = `<div class="scrolly-tell-container">
     .scrolly-tell-container .step p {
       font-size: 1.5rem;
       padding: 1rem;
-    }
-  }
-  @media (hover: none) {
-    .scrolly-tell-container figure {
-      pointer-events: none;
     }
   }
 </style>
