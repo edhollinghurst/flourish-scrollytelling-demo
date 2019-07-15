@@ -29,7 +29,6 @@ const html = `<div class="scrolly-tell-container">
   .scrolly-tell-container .step {
     margin: 0 auto 2rem auto;
     color: #111111;
-    z-index: -1;
   }
   .scrolly-tell-container .step:last-child {
     margin-bottom: 0;
@@ -45,6 +44,9 @@ const html = `<div class="scrolly-tell-container">
       font-size: 1.5rem;
       padding: 1rem;
     }
+  }
+  .touch-device article {
+    pointer-events: auto;
   }
 </style>
 <section id="scrolly">
@@ -66,3 +68,7 @@ const html = `<div class="scrolly-tell-container">
 scrollytellEl.innerHTML = html;
 
 initScroller(storyId);
+
+if ('ontouchstart' in document.documentElement) {
+  scrollytellEl.classList.add('touch-device');
+}

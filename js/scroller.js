@@ -72,8 +72,8 @@ const initScroller = (storyId) => {
     scroller
       .setup({
         step: '#scrolly article .step',
-        offset: 0,
-        debug: false,
+        offset: 0.33,
+        debug: true,
       })
       .onStepEnter(handleStepEnter);
 
