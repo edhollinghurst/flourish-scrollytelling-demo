@@ -57,4 +57,12 @@ const createFlourishStory = (storyId, slide = null) => {
     (iframe.style.height = chartHeight));
 };
 
-export { createFlourishStory };
+const loadExternalFlourishScript = () => {
+  const flourishScript = document.createElement('script');
+  flourishScript.type = 'text/javascript';
+  flourishScript.async = true;
+  flourishScript.src = 'https://public.flourish.studio/resources/embed.js';
+  document.getElementsByTagName('head')[0].appendChild(flourishScript);
+};
+
+export { createFlourishStory, loadExternalFlourishScript };

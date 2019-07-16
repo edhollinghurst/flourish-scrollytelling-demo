@@ -1,7 +1,11 @@
 import scrollama from 'scrollama';
-import { createFlourishStory } from './flourish-embed';
+import {
+  createFlourishStory,
+  loadExternalFlourishScript,
+} from './flourish-embed';
 
 let CURRENT_STEP = 0;
+let EXTERNAL_FLOURISH_SCRIPT_LOADED = false;
 
 const initScroller = (storyId) => {
   const scrollytell = document.querySelector('#scrollytell');
@@ -37,6 +41,13 @@ const initScroller = (storyId) => {
     if (response.index !== CURRENT_STEP) {
       createFlourishStory(storyId, response.index);
       CURRENT_STEP = response.index;
+      if (
+        response.index + 1 === steps.length &&
+        !EXTERNAL_FLOURISH_SCRIPT_LOADED
+      ) {
+        loadExternalFlourishScript();
+        EXTERNAL_FLOURISH_SCRIPT_LOADED = true;
+      }
     }
   }
 
