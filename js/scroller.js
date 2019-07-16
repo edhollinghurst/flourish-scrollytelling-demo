@@ -4,10 +4,9 @@ import { createFlourishStory } from './flourish-embed';
 let CURRENT_STEP = 0;
 
 const initScroller = (storyId) => {
-  const main = document.querySelector('.scrolly-tell-container');
-  const scrolly = main.querySelector('#scrolly');
-  const flourishContainer = scrolly.querySelector('.flourish-container');
-  const scrollamaSteps = scrolly.querySelector('.scrollama-steps');
+  const scrollytell = document.querySelector('#scrollytell');
+  const flourishContainer = scrollytell.querySelector('.flourish-container');
+  const scrollamaSteps = scrollytell.querySelector('.scrollama-steps');
   const steps = scrollamaSteps.querySelectorAll('.step');
 
   // initialize the scrollama
@@ -46,7 +45,7 @@ const initScroller = (storyId) => {
 
     scroller
       .setup({
-        step: '#scrolly .scrollama-steps .step',
+        step: '.scrollama-steps .step',
         offset: 0.9,
         debug: false,
       })

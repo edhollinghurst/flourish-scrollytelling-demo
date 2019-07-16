@@ -1,5 +1,4 @@
 const BASE_URL = 'https://public.flourish.studio/';
-const scrollytellEl = document.querySelector('#scrollytell');
 
 function getWindowHeight() {
   return window.innerHeight;
