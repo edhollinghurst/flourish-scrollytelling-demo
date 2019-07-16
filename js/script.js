@@ -9,6 +9,9 @@ const storyId = scrollytellEl.getAttribute('data-story-id');
 
 const html = `<div class="scrolly-tell-container">
 <style>
+  #scrollytell > span {
+    display: none;
+  }
   .scrolly-tell-container #scrolly {
     position: relative;
   }
@@ -46,10 +49,10 @@ const html = `<div class="scrolly-tell-container">
       padding: 1rem;
     }
   }
-  .touch-device article {
+  .touch-device .scrolly-tell-container article {
     pointer-events: auto;
   }
-  .touch-device .flourish-embed iframe {
+  .touch-device .scrolly-tell-container .flourish-embed iframe {
     pointer-events: none;
   }
 </style>

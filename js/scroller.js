@@ -1,34 +1,33 @@
-import { select, selectAll } from 'd3';
 import scrollama from 'scrollama';
-import Stickyfill from 'stickyfilljs';
 import { createFlourishStory } from './flourish-embed';
 
 let CURRENT_STEP = 0;
 
 const initScroller = (storyId) => {
-  // using d3 for convenience
-  var main = select('.scrolly-tell-container');
-  var scrolly = main.select('#scrolly');
-  var figure = scrolly.select('figure');
-  var article = scrolly.select('article');
-  var step = article.selectAll('.step');
+  const main = document.querySelector('.scrolly-tell-container');
+  const scrolly = main.querySelector('#scrolly');
+  const figure = scrolly.querySelector('figure');
+  const article = scrolly.querySelector('article');
+  const steps = article.querySelectorAll('.step');
 
   // initialize the scrollama
-  var scroller = scrollama();
+  const scroller = scrollama();
 
   // generic window resize listener event
   function handleResize() {
-    // 1. update height of step elements
-    var stepH = Math.floor(window.innerHeight * 0.75);
-    step.style('height', stepH + 'px');
+    const stepHeight = Math.floor(window.innerHeight * 0.75);
+    for (const step of steps) {
+      step.setAttribute('style', `height: ${stepHeight}px;`);
+    }
 
-    var figureHeight = window.innerHeight;
-    // var figureMarginTop = (window.innerHeight - figureHeight) / 2;
-    var figureMarginTop = 0;
+    const figureHeight = window.innerHeight;
+    // const figureMarginTop = (window.innerHeight - figureHeight) / 2;
+    const figureMarginTop = 0;
 
-    figure
-      .style('height', figureHeight + 'px')
-      .style('top', figureMarginTop + 'px');
+    figure.setAttribute(
+      'style',
+      `height: ${figureHeight}px; top: ${figureMarginTop}px;`
+    );
 
     // 3. tell scrollama to update new element dimensions
     scroller.resize();
@@ -36,17 +35,6 @@ const initScroller = (storyId) => {
 
   // scrollama event handlers
   function handleStepEnter(response) {
-    // response = { element, direction, index }
-
-    // add color to current step only
-    step.classed('is-active', function(d, i) {
-      return i === response.index;
-    });
-
-    // update graphic based on step
-    // figure.select('p').text(response.index + 1);
-
-    // console.log('response.index', response.index);
     // Update story based on step
     if (response.index !== CURRENT_STEP) {
       createFlourishStory(storyId, response.index);
@@ -54,21 +42,9 @@ const initScroller = (storyId) => {
     }
   }
 
-  function setupStickyfill() {
-    selectAll('.sticky').each(function() {
-      Stickyfill.add(this);
-    });
-  }
-
   function init() {
-    setupStickyfill();
+    handleResize(); // force a resize on load to ensure proper dimensions set
 
-    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
-    handleResize();
-
-    // 2. setup the scroller passing options
-    // 		this will also initialize trigger observations
-    // 3. bind scrollama event handlers (this can be chained like below)
     scroller
       .setup({
         step: '#scrolly article .step',
@@ -83,7 +59,6 @@ const initScroller = (storyId) => {
     window.addEventListener('resize', handleResize);
   }
 
-  // kick things off
   init();
 };
 

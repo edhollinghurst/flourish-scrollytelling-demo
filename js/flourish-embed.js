@@ -1,4 +1,5 @@
 const BASE_URL = 'https://public.flourish.studio/';
+const scrollytellEl = document.querySelector('#scrollytell');
 
 function getWindowHeight() {
   return window.innerHeight;
@@ -14,7 +15,6 @@ function isSafari() {
 
 const createFlourishStory = (storyId, slide = null) => {
   const flourishEmbed = document.querySelector('.flourish-embed');
-
   const existingIframe = flourishEmbed.querySelector('iframe');
   if (existingIframe && existingIframe.src.includes(`story/${storyId}`)) {
     const embedUrl = `${BASE_URL}story/${storyId}/embed${
