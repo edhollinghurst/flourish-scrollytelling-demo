@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import { select, selectAll } from 'd3';
 import scrollama from 'scrollama';
 import Stickyfill from 'stickyfilljs';
 import { createFlourishStory } from './flourish-embed';
@@ -7,7 +7,7 @@ let CURRENT_STEP = 0;
 
 const initScroller = (storyId) => {
   // using d3 for convenience
-  var main = d3.select('.scrolly-tell-container');
+  var main = select('.scrolly-tell-container');
   var scrolly = main.select('#scrolly');
   var figure = scrolly.select('figure');
   var article = scrolly.select('article');
@@ -55,7 +55,7 @@ const initScroller = (storyId) => {
   }
 
   function setupStickyfill() {
-    d3.selectAll('.sticky').each(function() {
+    selectAll('.sticky').each(function() {
       Stickyfill.add(this);
     });
   }
