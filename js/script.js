@@ -48,13 +48,11 @@ const html = `<style>
   #scrollytell.touch-device .scrollama-steps {
     pointer-events: auto;
   }
-  #scrollytell.touch-device .flourish-embed iframe {
+  #scrollytell.touch-device .flourish-container iframe {
     pointer-events: none;
   }
 </style>
-<div class="flourish-container">
-  <div class="flourish-embed"></div>
-</div>
+<div class="flourish-container"></div>
 <div class="scrollama-steps">
   ${stepsArr
     .map((step) => `<div class="step"><p>${step.innerHTML}</p></div>`)

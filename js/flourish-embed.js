@@ -13,8 +13,8 @@ function isSafari() {
 }
 
 const createFlourishStory = (storyId, slide = null) => {
-  const flourishEmbed = document.querySelector('.flourish-embed');
-  const existingIframe = flourishEmbed.querySelector('iframe');
+  const flourishContainer = document.querySelector('.flourish-container');
+  const existingIframe = flourishContainer.querySelector('iframe');
   if (existingIframe && existingIframe.src.includes(`story/${storyId}`)) {
     const embedUrl = `${BASE_URL}story/${storyId}/embed${
       slide ? `#slide-${slide}` : '#slide-0'
@@ -28,8 +28,8 @@ const createFlourishStory = (storyId, slide = null) => {
     slide ? `#slide-${slide}` : '#slide-0'
   }`;
 
-  let chartWidth = flourishEmbed.getAttribute('data-width');
-  let chartHeight = flourishEmbed.getAttribute('data-height');
+  let chartWidth = flourishContainer.getAttribute('data-width');
+  let chartHeight = flourishContainer.getAttribute('data-height');
 
   if (!chartHeight) {
     chartHeight = getWindowHeight() + 'px';
@@ -40,19 +40,19 @@ const createFlourishStory = (storyId, slide = null) => {
   iframe.setAttribute('frameborder', '0');
   iframe.setAttribute('src', embedUrl);
 
-  flourishEmbed.appendChild(iframe);
+  flourishContainer.appendChild(iframe);
 
   chartWidth
     ? (iframe.style.width = chartWidth)
     : isSafari()
-    ? (iframe.style.width = flourishEmbed.offsetWidth + 'px')
+    ? (iframe.style.width = flourishContainer.offsetWidth + 'px')
     : (iframe.style.width = '100%');
 
   chartHeight &&
     ('%' === chartHeight.charAt(chartHeight.length - 1) &&
       (chartHeight =
         (parseFloat(chartHeight) / 100) *
-          flourishEmbed.parentNode.offsetHeight +
+          flourishContainer.parentNode.offsetHeight +
         'px'),
     (iframe.style.height = chartHeight));
 };
