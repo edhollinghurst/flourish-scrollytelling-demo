@@ -9,20 +9,17 @@ const storyId = scrollytellEl.getAttribute('data-story-id');
 
 const html = `<div class="scrolly-tell-container">
 <style>
-  #scrollytell > span {
-    display: none;
-  }
   .scrolly-tell-container #scrolly {
     position: relative;
   }
-  .scrolly-tell-container article {
+  .scrolly-tell-container .scrollama-steps {
     position: relative;
     padding: 0;
     max-width: 20rem;
     margin: 0 auto;
     pointer-events: none;
   }
-  .scrolly-tell-container figure {
+  .scrolly-tell-container .flourish-container {
     position: -webkit-sticky;
     position: sticky;
     left: 0;
@@ -49,7 +46,7 @@ const html = `<div class="scrolly-tell-container">
       padding: 1rem;
     }
   }
-  .touch-device .scrolly-tell-container article {
+  .touch-device .scrolly-tell-container .scrollama-steps {
     pointer-events: auto;
   }
   .touch-device .scrolly-tell-container .flourish-embed iframe {
@@ -57,14 +54,14 @@ const html = `<div class="scrolly-tell-container">
   }
 </style>
 <section id="scrolly">
-  <figure>
-    <div class="flourish-embed" />
-  </figure>
-  <article>
+  <div class="flourish-container">
+    <div class="flourish-embed"></div>
+  </div>
+  <div class="scrollama-steps">
     ${stepsArr
       .map((step) => `<div class="step"><p>${step.innerHTML}</p></div>`)
       .join('')}
-  </article>
+  </div>
 </section>
 </div>`;
 
