@@ -2,7 +2,7 @@ import 'intersection-observer';
 import { initScroller } from './scroller';
 
 const scrollytellEl = document.querySelector('#scrollytell');
-const steps = scrollytellEl.querySelectorAll('span');
+const steps = scrollytellEl.querySelectorAll(':scope > span');
 const stepsArr = Array.from(steps);
 
 const storyId = scrollytellEl.getAttribute('data-story-id');
