@@ -17,7 +17,8 @@ const initScroller = (storyId) => {
   const scroller = scrollama();
 
   function handleResize() {
-    const stepHeight = Math.floor(window.innerHeight * 0.75);
+    // const stepHeight = Math.floor(window.innerHeight * 0.75);
+    const stepHeight = window.innerHeight + 200;
     for (const step of steps) {
       step.setAttribute('style', `height: ${stepHeight}px;`);
     }
