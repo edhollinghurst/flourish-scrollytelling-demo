@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/runtime-corejs2": "^7.4.4",
-    "d3": "^5.9.7",
+    "d3": "^7.6.1",
     "intersection-observer": "^0.7.0",
     "scrollama": "^2.0.0"
   },
